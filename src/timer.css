@@ -1,41 +1,226 @@
+/* Common styles for both desktop and mobile */
 .timer-container {
-    background-color: #18182e;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+  background-image: url('./imgs/backgound.jpg');
+  background-color: #18182e;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; /* Adjusted to avoid repeating */
+  color: white;
+  width: 100%; /* Adjusted for responsiveness */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center justify content */
+}
+.timer-container h2 {
+  font-family: "Covered By Your Grace", cursive;
+  font-size: 10em; /* Adjusted font size for better readability on smaller screens */
+  margin-bottom: 5px; /* Adjusted margin for better positioning */
+  margin-top: 10px;
+  animation: washAnimation 2.5s infinite; /* Apply animation */
+  background-clip: text; /* Clip background to the text */
+  color: transparent; /* Set text color to transparent */
+  background-image: linear-gradient(to left, #00ffbf, #bcff86);
+  text-shadow: 5px 10px 15px rgba(226, 192, 192, 0.3);
+  animation: flicker 3s infinite;
+
+}
+.timer-container h4{
+  font-family: "Covered By Your Grace", cursive;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2em; /* Adjusted font size for better readability on smaller screens */
+  margin: 0;
+  animation: washAnimation 2.7s infinite; /* Apply animation */
+
+}
+.timer {
+  font-family: "Caveat Brush", cursive;
+  font-weight: 100;
+  display: flex;
+  flex-direction: row; /* Changed to column for better stacking on smaller screens */
+  width: 100%;
+  margin-top: 10%; /* Adjusted for better positioning */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center justify content */
+}
+
+.component {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px; /* Adjust the radius as needed */
+  padding: 1rem;
+  text-align: center;
+  width : 6%; /* Adjusted for responsiveness */
+  margin: 10px;
+  animation: washAnimation 2s infinite; /* Apply animation */
+}
+
+.component p {
+  margin: 0;
+}
+
+.component p:first-child {
+  font-size: 4em; /* Adjusted font size for better readability on smaller screens */
+  font-weight: 600;
+}
+
+.component p:last-child {
+  font-size: 2em; /* Adjusted font size for better readability on smaller screens */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+.confetti {
+  width: 15px;
+  height: 15px;
+  background-color: #f2d74e;
+  position: absolute;
+  left: 50%;
+  animation: confetti 5s ease-in-out -2s infinite;
+  transform-origin: left top;
+}
+.confetti:nth-child(1) {
+  background-color: #f2d74e; left: 10%; animation-delay: 0;
+}
+.confetti:nth-child(2) {
+  background-color: #95c3de; left: 20%; animation-delay: -5s;
+}
+.confetti:nth-child(3) {
+  background-color: #ff9a91; left: 30%; animation-delay: -3s;
+}
+.confetti:nth-child(4) {
+  background-color: #f2d74e; left: 40%; animation-delay: -2.5s;
+}
+.confetti:nth-child(5) {
+  background-color: #95c3de; left: 50%; animation-delay: -4s;
+}
+.confetti:nth-child(6) {
+  background-color: #ff9a91; left: 60%; animation-delay: -6s;
+}
+.confetti:nth-child(7) {
+  background-color: #f2d74e; left: 70%; animation-delay: -1.5s;
+}
+.confetti:nth-child(8) {
+  background-color: #95c3de; left: 80%; animation-delay: -2s;
+}
+.confetti:nth-child(9) {
+  background-color: #ff9a91; left: 90%; animation-delay: -3.5s;
+}
+.confetti:nth-child(10) {
+  background-color: #f2d74e; left: 100%; animation-delay: -2.5s;
+}
+
+
+.like-button {
+  width: 100px;
+  height: 70px;
+  border-radius: 10%; /* Make it circular */
+  background-color: #ff7675; /* Red color for heart shape */
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin: 30px;
+  padding-top: 3px;
+}
+
+.heart-icon {
+  font-family: "Caveat Brush", cursive;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 14px;
+  color: #8d0000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  background-size: cover;
+}
+
+.heart-pop {
+  position: absolute; /* Position the popped heart absolutely */
+  top: 0;
+  left: 0;
+  font-family: "Caveat Brush", cursive;
+  color: #ff7675;
+  opacity: 0; /* Initially hide the popped heart */
+  animation: popHeart 0.5s forwards; /* Animation to make the heart pop out */
+}
+
+.like-counter {
+  margin-left: 10px;
   
+}
+
+@keyframes popHeart {
+  0% {
+    opacity: 0; /* Initial opacity */
+    transform: scale(0); /* Initial scale */
+  }
+  100% {
+    opacity: 1; /* Final opacity */
+    transform: scale(1); /* Final scale */
+  }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  10% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.flicker-text {
+  animation: flicker 1s infinite;
+}
+
+@keyframes confetti {
+0% { transform: rotateZ(15deg) rotateY(0deg) translate(0,0); }
+25% { transform: rotateZ(5deg) rotateY(360deg) translate(-5vw,20vh); }
+50% { transform: rotateZ(15deg) rotateY(720deg) translate(5vw,60vh); }
+75% { transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw,80vh); }
+100% { transform: rotateZ(15deg) rotateY(1440deg) translate(10vw,110vh); }
+}
+/* Media query for screens smaller than 768px (typical mobile devices) */
+@media only screen and (max-width: 768px) {
   .timer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      margin-top: 5%; /* Adjusted margin for better positioning on smaller screens */
+      display: flex;
+      flex-direction: column; /* Changed to column for better stacking on smaller screens */
+      width: 100%;
+      margin-top: 10%; /* Adjusted for better positioning */
+      align-items: center; /* Center align items */
+      justify-content: center; /* Center justify content */
   }
-  
+
   .component {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px; /* Adjust the radius as needed */
-    padding: 1rem;
-    text-align: center;
-    flex-grow: 1; /* Fill available space */
+      width: 8%; /* Adjusted width for better responsiveness */
   }
-  
-  .component p {
-    margin: 0;
-  }
-  
+
   .component p:first-child {
-    font-size: 2em;
-    font-weight: 600;
+      font-size: 2em; /* Adjusted font size for better readability on smaller screens */
   }
-  
+
   .component p:last-child {
-    font-size: 1em;
+      font-size: 1em; /* Adjusted font size for better readability on smaller screens */
   }
-  
+}
+
+@keyframes washAnimation {
+  0% {
+    transform: translateY(0); /* Initial position */
+  }
+  50% {
+    transform: translateY(-7px); /* Midpoint position */
+  }
+  100% {
+    transform: translateY(0); /* Final position */
+  }
+}

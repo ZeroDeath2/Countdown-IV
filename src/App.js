@@ -41,7 +41,7 @@ const App = () => {
   useEffect(() => {
     startTimer();
     return () => {
-      clearInterval(interval.current);
+      clearInterval(interval);
     };
   },[]);
   return (
